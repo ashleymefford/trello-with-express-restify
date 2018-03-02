@@ -7,26 +7,26 @@ server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
 
 let data = [{
-		"id": 1,
-		"subject": "hello",
-		"description": "hello world"
-	},
-	{
-		"id": 2,
-		"subject": "hello 2",
-		"description": "hello world 2"
-	},
-	{
-		"id": 3,
-		"subject": "hello 3",
-		"description": "hello world 3"
-	}
+		"swimlaneTitle": 1,
+		"cardTitle": "1a",
+		"cardDescription": "hello world"
+},
+    {
+        "swimlaneTitle": 2,
+        "cardTitle": "2a",
+        "cardDescription": "hello world 2"
+    },
+    {
+        "swimlaneTitle": 3,
+        "cardTitle": "3a",
+        "cardDescription": "hello world 3"
+    }
 ];
 
-var Message = function(id, subject, description){
-	this.id = id;
-	this.subject = subject;
-	this.description = description;
+var Message = function(swimlaneTitle, cardTitle, cardDescription){
+	this.swimlaneTitle = swimlaneTitle;
+	this.cardTitle = cardTitle;
+	this.cardDescription = cardDescription;
 }
 
 

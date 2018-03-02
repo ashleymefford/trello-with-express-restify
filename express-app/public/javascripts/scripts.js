@@ -43,17 +43,33 @@ $(document).ready(function() {
     });
 
     var message = {
-        id: $("#txtId").val(),
-        subject: $("#txtSubject").val(),
-        description: $("#txtDescription").val()
+        swimlaneTitle: $(".swimlaneTitle").val(),
+        cardTitle: $(".cardTitle").val,
+        cardDescription: $(".cardDescription").val(),
+
     }
 
+    // var message = {
+    //     id: $("#txtId").val(),
+    //     subject: $("#txtSubject").val(),
+    //     description: $("#txtDescription").val()
+    // }
+
     $.ajax({
-            method: "POST",
-            url: "http://localhost:8080/messages",
-            data: message
+        method: "POST",
+        url: "http://localhost:8080/messages",
+        data: message
         })
         .done(function(msg) {
             alert("Data Saved: " + msg);
+        });
+
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/messages",
+        data: message
+    })
+        .done(function(msg) {
+            alert("Data Retrieved: " + msg);
         });
 });
