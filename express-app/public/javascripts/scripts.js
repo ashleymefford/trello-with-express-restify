@@ -12,6 +12,26 @@ $(document).ready(function() {
     $('.container').on('click', '.swimlaneTitle', function(){
         let swimlaneTitle= prompt('What is the Swimlane title?');
         $(this).closest('.swimlaneTitle').text(swimlaneTitle);
+
+
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/swimLanes",
+            data: swimLanes
+            })
+            .done(function(data) {
+                console.log(data);
+        });
+
+        $.ajax({
+            method: "POST",
+            url: "http://localhost:8080/swimLanes",
+            data: swimLanes
+            })
+            .done(function(data) {
+                console.log("Data Saved: " + data);
+            });
+
     });
 
     $('.container').on('click', '.removeSwimlane', function() {
@@ -42,28 +62,14 @@ $(document).ready(function() {
         $(this).closest('.taskCard').remove();
     });
 
-    var message = {
+    var swimLanes = {
         swimlaneTitle: $(".swimlaneTitle").val(),
-        cardTitle: $(".cardTitle").val,
-        cardDescription: $(".cardDescription").val(),
+        // cardTitle: $(".cardTitle").val,
+        // cardDescription: $(".cardDescription").val(),
 
     }
 
-    $.ajax({
-        method: "POST",
-        url: "http://localhost:8080/messages",
-        data: message
-        })
-        .done(function(msg) {
-            alert("Data Saved: " + msg);
-        });
+    //
 
-    // $.ajax({
-    //     method: "GET",
-    //     url: "http://localhost:8080/messages",
-    //     data: message
-    // })
-    //     .done(function(msg) {
-    //         alert("Data Retrieved: " + msg);
-    //     });
+
 });

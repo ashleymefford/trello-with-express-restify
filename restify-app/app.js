@@ -8,25 +8,25 @@ server.use(restify.plugins.bodyParser());
 
 let data = [{
 		"swimlaneTitle": 1,
-		"cardTitle": "1a",
-		"cardDescription": "hello world"
+		// "cardTitle": "1a",
+		// "cardDescription": "hello world"
 },
     {
         "swimlaneTitle": 2,
-        "cardTitle": "2a",
-        "cardDescription": "hello world 2"
+        // "cardTitle": "2a",
+        // "cardDescription": "hello world 2"
     },
     {
         "swimlaneTitle": 3,
-        "cardTitle": "3a",
-        "cardDescription": "hello world 3"
+        // "cardTitle": "3a",
+        // "cardDescription": "hello world 3"
     }
 ];
 
 var Swimlanes = function(swimlaneTitle, cardTitle, cardDescription){
 	this.swimlaneTitle = swimlaneTitle;
-	this.cardTitle = cardTitle;
-	this.cardDescription = cardDescription;
+	// this.cardTitle = cardTitle;
+	// this.cardDescription = cardDescription;
 }
 
 
@@ -46,7 +46,10 @@ function postSwimlanes(req, res, next) {
 	
 	console.log(req.body);
 
-	var swimLane = new Swimlanes(req.body.swimlaneTitle, req.body.cardTitle, req.body.cardDescription);
+	var swimLane = new Swimlanes(req.body.swimlaneTitle);
+        // req.body.cardTitle,
+        // req.body.cardDescription
+
 
 	data.push(swimLane);
 
