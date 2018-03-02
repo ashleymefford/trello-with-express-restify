@@ -49,12 +49,6 @@ $(document).ready(function() {
 
     }
 
-    // var message = {
-    //     id: $("#txtId").val(),
-    //     subject: $("#txtSubject").val(),
-    //     description: $("#txtDescription").val()
-    // }
-
     $.ajax({
         method: "POST",
         url: "http://localhost:8080/messages",
@@ -64,12 +58,12 @@ $(document).ready(function() {
             alert("Data Saved: " + msg);
         });
 
-    $.ajax({
-        method: "GET",
-        url: "http://localhost:8080/messages",
-        data: message
-    })
-        .done(function(msg) {
-            alert("Data Retrieved: " + msg);
-        });
+    // $.ajax({
+    //     method: "GET",
+    //     url: "http://localhost:8080/messages",
+    //     data: message
+    // })
+    //     .done(function(msg) {
+    //         alert("Data Retrieved: " + msg);
+    //     });
 });
